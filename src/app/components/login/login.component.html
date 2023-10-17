@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm">
+    <h3>Login Here</h3>
+<div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
+    <label for="username">Username</label>
+    <input formControlName = "username" type="text" placeholder="Username" id="username">
+</div>
+    <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')" class="text-danger">*username is required</small>
+    
+<div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">   
+    <label for="password">Username</label>
+    <input formControlName = "password" type="password" placeholder="Password" id="password">
+    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+</div>
+    <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" class="text-danger">*password is required</small>
+    <a id="forget" class="font-weight-bold">Forget Password</a>
+    <button (click)="onSubmit()" type="submit" style="color:black">Log In</button>
+    <div>don't have account?<a id="forget" routerLink="/singup">Sing Up</a></div>
+</form>
+<style>
+    body{
+      background-color: #080710;
+    }
+  </style>
